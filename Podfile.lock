@@ -1,0 +1,42 @@
+PODS:
+  - Alamofire (5.2.2)
+  - AlamofireObjectMapper (6.3.0):
+    - Alamofire (~> 5.2.2)
+    - ObjectMapper (~> 4.2.0)
+  - Kingfisher (6.1.1)
+  - MBProgressHUD (1.2.0)
+  - ObjectMapper (4.2.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireObjectMapper (from `https://github.com/T-Pro/AlamofireObjectMapper.git`, branch `master`)
+  - Kingfisher
+  - MBProgressHUD
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Kingfisher
+    - MBProgressHUD
+    - ObjectMapper
+
+EXTERNAL SOURCES:
+  AlamofireObjectMapper:
+    :branch: master
+    :git: https://github.com/T-Pro/AlamofireObjectMapper.git
+
+CHECKOUT OPTIONS:
+  AlamofireObjectMapper:
+    :commit: 11bde54ecdae5f786c507b4fec1ad0001bb2600c
+    :git: https://github.com/T-Pro/AlamofireObjectMapper.git
+
+SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  AlamofireObjectMapper: 9802001b42a60e2365c411073828e89c6d28ccf8
+  Kingfisher: 676d63307fbef6ed5d5ed400bff36983480d7500
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+
+PODFILE CHECKSUM: 002e5210277ac875d9d2e87d952c03827f45093f
+
+COCOAPODS: 1.10.1
