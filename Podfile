@@ -11,4 +11,6 @@ target 'TestProject' do
  pod 'Kingfisher', :binary => false
  pod 'Alamofire'
   pod 'AlamofireObjectMapper', :git => 'https://github.com/T-Pro/AlamofireObjectMapper.git', :branch => 'master'
+  pod 'SnapKit', '~> 5.0.0', :binary => false
+
 end
