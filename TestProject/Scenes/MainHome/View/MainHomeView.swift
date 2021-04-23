@@ -39,18 +39,15 @@ class MainHomeView: BaseViewController {
     }
     
     private var presenter: MainHomePresenterProtocol!
-    private var viewObjects : [ViewMainHomeEntity]?
+    private var viewObjects : [ViewMainHomeEntity] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = MainHomePresenter(view: self)
-        
-        // Informs the Presenter that the View is ready to receive data.
         self.presenter.fetch(objectFor: self)
         
         view.backgroundColor = .white
-        
-        
         self.presenter.update(withEvent: .getCars)
         self.initUI()
 
@@ -65,21 +62,35 @@ class MainHomeView: BaseViewController {
             make.edges.equalToSuperview()
         }
         
-       
+        self.tableView.register(UITableViewCell.self)
+
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+
+    }
+    
+    @objc func addTapped() {
+        
     }
     
 }
 
 extension MainHomeView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewObjects = viewObjects else { return 0 }
         return viewObjects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = viewObjects[indexPath.row]
         
+        let cell = tableView.dequeueCell(UITableViewCell.self, indexPath: indexPath)
+        cell.textLabel?.text = item.modelName
+        cell.detailTextLabel?.text = "\(item.fuelConsumptioRate)"
         
-        return UITableViewCell()
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -90,6 +101,8 @@ extension MainHomeView: MainHomeViewProtocol {
     /// Set the view Object of ViewMainHomeEntity
     func set(object: [ViewMainHomeEntity]) {
         self.viewObjects = object
+        self.tableView.reloadData()
+        
     }
     
 }

@@ -132,3 +132,46 @@ extension UIStackView {
         }
     }
 }
+
+
+
+extension UITableView {
+    
+    func register(_ cell: AnyClass) {
+        self.register(cell, forCellReuseIdentifier: String(describing: cell))
+    }
+    
+    func registerHeader(_ header: AnyClass) {
+        self.register(header, forHeaderFooterViewReuseIdentifier: String(describing: header))
+    }
+    
+    func dequeue(_ cell: AnyClass, indexPath: IndexPath) -> UITableViewCell {
+        self.dequeueReusableCell(withIdentifier: String(describing: cell), for: indexPath)
+    }
+    
+    func dequeueCell<Cell: UITableViewCell>(_ cell: Cell.Type, indexPath: IndexPath) -> Cell {
+        guard let cell = self.dequeueReusableCell(withIdentifier: String(describing: Cell.self), for: indexPath) as? Cell else { return Cell() }
+        return cell
+    }
+ 
+    func dequeue<Header: UITableViewHeaderFooterView>(header: Header.Type) -> Header {
+        guard let header = self.dequeueReusableHeaderFooterView(withIdentifier: String(describing: Header.self)) as? Header else {
+            return Header()
+        }
+        return header
+    }
+}
+
+class BaseTableViewCell: UITableViewCell {
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+
+}
