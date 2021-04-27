@@ -45,12 +45,28 @@ class MainHomeView: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = MainHomePresenter(view: self)
-        self.presenter.fetch(objectFor: self)
+//        self.presenter.fetch(objectFor: self)
         
         view.backgroundColor = .white
         self.presenter.update(withEvent: .getCars)
         self.initUI()
-
+        
+        
+//        CarService.getCar(by: 33) { (res) in
+//            print(res)
+//        }
+        let data = ViewMainHomeEntity(object: MainHomeEntity(id: 36, modelName: "ьфявф гзвфеу", fuelConsumptioRate: 40.3))
+//        CarService.addCar(with: data) { (res) in
+//            print(res)
+//        }
+//
+        CarService.updateCar(with: data) { (ress) in
+            print(ress)
+        }
+        
+//        CarService.deleteCae(by: 36) { (res) in
+//            print(res)
+//        }
     }
     
     func initUI() {
@@ -102,7 +118,6 @@ extension MainHomeView: MainHomeViewProtocol {
     func set(object: [ViewMainHomeEntity]) {
         self.viewObjects = object
         self.tableView.reloadData()
-        
     }
     
 }

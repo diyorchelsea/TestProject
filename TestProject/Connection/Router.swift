@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import ObjectMapper
 
 enum Router: URLRequestConvertible {
 
@@ -16,14 +17,18 @@ enum Router: URLRequestConvertible {
     
     case getCarModels
     case getCarModel(id: Int)
+    case addCar(model: ViewMainHomeEntity)
+    case update(model: ViewMainHomeEntity)
+    case deleteCarModel(id: Int)
+
 
     private var path: String {
-        switch self {
-        case .getCarModels:
+//        switch self {
+//        case .getCarModels:
+//            return "carModels"
+//        case .getCarModel:
             return "carModels"
-        case .getCarModel:
-            return "carModels"
-        }
+//        }
     }
 
     private var method: HTTPMethod {
@@ -32,6 +37,12 @@ enum Router: URLRequestConvertible {
             return .get
         case .getCarModel:
             return .get
+        case .addCar:
+            return .post
+        case .update:
+            return .put
+        case .deleteCarModel:
+            return .delete
         }
     }
     
@@ -41,15 +52,18 @@ enum Router: URLRequestConvertible {
             return [:]
         case .getCarModel(let id):
             return ["id": id]
+        case .addCar (let model):
+            return ["id": model.id,
+                    "modelName": model.modelName,
+                    "fuelConsumptioRate": model.fuelConsumptioRate]
+        case .update(let model):
+            return ["id": model.id,
+                    "modelName": model.modelName,
+                    "fuelConsumptioRate": model.fuelConsumptioRate]
+        case .deleteCarModel(let id):
+            return ["id": id]
         }
     }
-    
-//    private var headers: HTTPHeader {
-//        let user = "TestUser"
-//        let password = "sdcJUhz8Wj9i"
-//        let auth = HTTPHeader.authorization(username: user, password: password)
-//        return auth
-//    }
     
     var headers:[String: String] {
         let user = "TestUser"
@@ -65,7 +79,6 @@ enum Router: URLRequestConvertible {
                     "Accept": "application/json",
                     "Content-Type": "application/json" ]
         
-    
         
         return headers
     }
@@ -74,6 +87,12 @@ enum Router: URLRequestConvertible {
         switch self {
         case .getCarModels:
             return  URLEncoding.default
+        case .addCar:
+            return JSONEncoding.default
+        case .update:
+            return JSONEncoding.default
+        case .deleteCarModel:
+            return JSONEncoding.default
         default:
             return URLEncoding.default
         }
