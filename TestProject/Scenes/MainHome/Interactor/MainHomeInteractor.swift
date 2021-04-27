@@ -22,4 +22,9 @@ class MainHomeInteractor: MainHomeInteractorProtocol {
         }
     }
 
+    func deletaCar(id: Int, for presenter: MainHomePresenterProtocol) {
+        CarService.deleteCar(by: id) { (res) in
+            presenter.interactor(self, didFetch: .didDeleteCar(result: res))
+        }
+    }
 }

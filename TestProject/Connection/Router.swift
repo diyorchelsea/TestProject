@@ -33,7 +33,7 @@ enum Router: URLRequestConvertible {
         case .update(let model):
             return "carModels/\(model.id)"
         case .deleteCarModel(let id):
-            return "carModels\(id)"
+            return "carModels/\(id)"
         }
     }
 
@@ -105,13 +105,7 @@ enum Router: URLRequestConvertible {
     }
     
     func asURLRequest() throws -> URLRequest {
-        //        let url = try basePath.asURL()
-        //        let urlRequest = URLRequest(url: url.appendingPathComponent(path))
-        //        return try URLEncoding.default.encode(urlRequest, with: params)
-        
         var url = try basePath.asURL()
-        //        url = url.appendingPathComponent(RouterLite.api)
-        //        url = url.appendingPathComponent(RouterLite.version.rawValue)
         url = url.appendingPathComponent(self.path)
         
         var urlRequest = URLRequest(url: url)

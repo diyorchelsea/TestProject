@@ -15,7 +15,4 @@ class MainHomeRouter: MainHomeRouterProtocol {
         view.set(object: item)
         parent.navigationController?.pushViewController(view, animated: true)
     }
-    
-
-
 }

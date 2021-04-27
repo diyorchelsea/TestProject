@@ -37,7 +37,7 @@ extension MainHomePresenter: MainHomePresenterProtocol {
         case .getCars:
             interactor.getCars(for: self)
         case .deleteCar(let id):
-            break
+            interactor.deletaCar(id: id, for: self)
         case .openDetail(let item):
             wireframe.showDetailsFor(item: item ?? nil, parent: self.view!)
         }
@@ -48,6 +48,8 @@ extension MainHomePresenter: MainHomePresenterProtocol {
         switch event {
         case .didRecieveCars(let cars):
             self.view?.set(object: cars.map{ViewMainHomeEntity(object: $0)})
+        case .didDeleteCar(let result):
+            self.view?.updateUI(flag: result)
         }
     }
     

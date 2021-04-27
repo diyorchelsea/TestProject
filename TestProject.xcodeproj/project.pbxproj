@@ -17,10 +17,7 @@
 		2D459452262FFD7D00FFB8A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D459450262FFD7D00FFB8A3 /* LaunchScreen.storyboard */; };
 		2D4594CC2630A6EB00FFB8A3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4594CB2630A6EB00FFB8A3 /* Router.swift */; };
 		2D4594D02630A8B500FFB8A3 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4594CF2630A8B500FFB8A3 /* URL.swift */; };
-		2D4594D32630A8E000FFB8A3 /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4594D22630A8E000FFB8A3 /* BaseApiService.swift */; };
-		2D4594D62630A92800FFB8A3 /* BaseEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4594D52630A92800FFB8A3 /* BaseEndPoint.swift */; };
 		2D528AC52630AC170076741D /* CarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D528AC42630AC170076741D /* CarService.swift */; };
-		2D528AC92630AD580076741D /* Envoirment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D528AC82630AD580076741D /* Envoirment.swift */; };
 		2D528ACD2630AE1C0076741D /* AppDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D528ACC2630AE1C0076741D /* AppDataManager.swift */; };
 		2D528AD02630B7940076741D /* UrlParametrEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D528ACF2630B7940076741D /* UrlParametrEncoding.swift */; };
 		2D5F30462632A73300823362 /* MainHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F30452632A73300823362 /* MainHomeView.swift */; };
@@ -47,10 +44,7 @@
 		2D459453262FFD7D00FFB8A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D4594CB2630A6EB00FFB8A3 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		2D4594CF2630A8B500FFB8A3 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
-		2D4594D22630A8E000FFB8A3 /* BaseApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiService.swift; sourceTree = "<group>"; };
-		2D4594D52630A92800FFB8A3 /* BaseEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEndPoint.swift; sourceTree = "<group>"; };
 		2D528AC42630AC170076741D /* CarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarService.swift; sourceTree = "<group>"; };
-		2D528AC82630AD580076741D /* Envoirment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Envoirment.swift; sourceTree = "<group>"; };
 		2D528ACC2630AE1C0076741D /* AppDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataManager.swift; sourceTree = "<group>"; };
 		2D528ACF2630B7940076741D /* UrlParametrEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlParametrEncoding.swift; sourceTree = "<group>"; };
 		2D5F30452632A73300823362 /* MainHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainHomeView.swift; sourceTree = "<group>"; };
@@ -183,9 +177,6 @@
 		2D4594622630A67D00FFB8A3 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
-				2D528AC82630AD580076741D /* Envoirment.swift */,
-				2D4594D22630A8E000FFB8A3 /* BaseApiService.swift */,
-				2D4594D52630A92800FFB8A3 /* BaseEndPoint.swift */,
 				2D528AC42630AC170076741D /* CarService.swift */,
 				2D4594CB2630A6EB00FFB8A3 /* Router.swift */,
 				2D528ACF2630B7940076741D /* UrlParametrEncoding.swift */,
@@ -408,11 +399,8 @@
 				2D5F305C2632A88B00823362 /* DetailContracts.swift in Sources */,
 				2D4594CC2630A6EB00FFB8A3 /* Router.swift in Sources */,
 				2D7CEECE26314BC600F999AB /* RootRouter.swift in Sources */,
-				2D528AC92630AD580076741D /* Envoirment.swift in Sources */,
 				2D26785B263149B900D6E884 /* MainHomeContracts.swift in Sources */,
-				2D4594D32630A8E000FFB8A3 /* BaseApiService.swift in Sources */,
 				2D528AD02630B7940076741D /* UrlParametrEncoding.swift in Sources */,
-				2D4594D62630A92800FFB8A3 /* BaseEndPoint.swift in Sources */,
 				2D5F305D2632A88B00823362 /* DetailPresenter.swift in Sources */,
 				2D528AC52630AC170076741D /* CarService.swift in Sources */,
 				2D459446262FFD7B00FFB8A3 /* AppDelegate.swift in Sources */,

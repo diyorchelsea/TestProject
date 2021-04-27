@@ -19,6 +19,7 @@ enum MainHomeViewEvent {
 
 enum MainHomeFetchEvent {
     case didRecieveCars(cars: [MainHomeEntity])
+    case didDeleteCar(result: Bool)
 }
 
 //MARK: View -
@@ -32,6 +33,7 @@ protocol MainHomeViewProtocol: UIViewController {
     // Update UI with value returned.
     /// Set the view Object of Type ViewMainHomeEntity
     func set(object: [ViewMainHomeEntity])
+    func updateUI(flag: Bool)
 }
 
 //MARK: Interactor -
@@ -40,7 +42,9 @@ protocol MainHomeInteractorProtocol {
     // Fetch Object from Data Layer
     func fetch(objectFor presenter: MainHomePresenterProtocol)
     
-    func getCars(for presenter: MainHomePresenterProtocol )
+    func getCars(for presenter: MainHomePresenterProtocol)
+    
+    func deletaCar(id: Int, for presenter: MainHomePresenterProtocol )
 }
 
 //MARK: Presenter -

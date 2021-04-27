@@ -84,33 +84,12 @@ class CarService {
             switch response.result {
             case .success(let data):
                 print(data)
+                completion(true)
             case .failure(let err):
-            
             print(err)
+                completion(false)
             }
         }
     }
-        
-//        AF.request(Router.deleteCarModel(id: id)).responseData { (response) in
-//
-//            switch response.result {
-//            case .success(let rawJson):
-//
-//                print(rawJson)
-////                do {
-////                    let data = try JSONDecoder().decode(Bool.self, from: rawJson)
-////
-////                    completion(data)
-////                } catch let err {
-////                    print(err)
-////                }
-//            case .failure(let err):
-//
-//                    print( err)
-//            }
-//        }
-    
-    
-
 }
 

@@ -34,6 +34,4 @@ class DetailInteractor: DetailInteractorProtocol {
         }
     }
     
-    
-
 }

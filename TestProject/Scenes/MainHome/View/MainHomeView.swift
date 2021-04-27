@@ -97,10 +97,29 @@ extension MainHomeView: UITableViewDataSource, UITableViewDelegate {
         let item = viewObjects[indexPath.row]
         presenter.update(withEvent: .openDetail(item: item))
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let action = UITableViewRowAction(style: .default, title: "delete") { (action, index) in
+            action.backgroundColor = .red
+            let item = self.viewObjects[index.row]
+            self.presenter.update(withEvent: .deleteCar(id: item.id))
+        }
+        return [action]
+    }
 }
 
 // MARK: - extending MainHomeView to implement it's protocol
 extension MainHomeView: MainHomeViewProtocol {
+    func updateUI(flag: Bool) {
+        if flag {
+            self.presenter.update(withEvent: .getCars)
+        }
+    }
+    
     
     // Update UI with value returned.
     /// Set the view Object of ViewMainHomeEntity
