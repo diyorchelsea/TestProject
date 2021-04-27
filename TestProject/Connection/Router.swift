@@ -23,12 +23,18 @@ enum Router: URLRequestConvertible {
 
 
     private var path: String {
-//        switch self {
-//        case .getCarModels:
-//            return "carModels"
-//        case .getCarModel:
+        switch self {
+        case .getCarModels:
             return "carModels"
-//        }
+        case .getCarModel(let id):
+            return "carModels/\(id)"
+        case .addCar:
+            return "carModels"
+        case .update(let model):
+            return "carModels/\(model.id)"
+        case .deleteCarModel(let id):
+            return "carModels\(id)"
+        }
     }
 
     private var method: HTTPMethod {
@@ -57,8 +63,7 @@ enum Router: URLRequestConvertible {
                     "modelName": model.modelName,
                     "fuelConsumptioRate": model.fuelConsumptioRate]
         case .update(let model):
-            return ["id": model.id,
-                    "modelName": model.modelName,
+            return ["modelName": model.modelName,
                     "fuelConsumptioRate": model.fuelConsumptioRate]
         case .deleteCarModel(let id):
             return ["id": id]

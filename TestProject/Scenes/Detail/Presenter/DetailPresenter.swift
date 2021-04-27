@@ -33,12 +33,18 @@ extension DetailPresenter: DetailPresenterProtocol {
     
     /// The presenter will update its state with event
     func update(withEvent event: DetailViewEvent) {
-        
+        switch event {
+        case .getCar(let id):
+            interactor.getCar(by: id, for: self)
+        }
     }
     
     /// The Interactor will inform the Presenter a successful fetch.
-    func interactor(_ interactor: DetailInteractorProtocol, didFetch object: DetailEntity) {
-        
+    func interactor(_ interactor: DetailInteractorProtocol, didFetch event: DetailFetchEvent) {
+        switch event {
+        case .didRecieveCar(let object):
+            self.view?.didReciveCar(by: ViewMainHomeEntity(object: object))
+         }
     }
     
     /// The Interactor will inform the Presenter a failed fetch.

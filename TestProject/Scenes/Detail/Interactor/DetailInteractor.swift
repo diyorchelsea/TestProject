@@ -15,5 +15,12 @@ class DetailInteractor: DetailInteractorProtocol {
     func fetch(objectFor presenter: DetailPresenterProtocol) {
         
     }
+    
+    func getCar(by id: Int, for presenter: DetailPresenterProtocol) {
+        CarService.getCar(by: id) { (res) in
+            presenter.interactor(self, didFetch: .didRecieveCar(object: res))
+        }
+    }
+    
 
 }

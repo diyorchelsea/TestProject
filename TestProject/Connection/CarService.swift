@@ -65,9 +65,15 @@ class CarService {
     
     static func updateCar(with data: ViewMainHomeEntity, completion: @escaping (Bool) -> Void) {
         
-        AF.request(Router.update(model: data)).validate().responseData { (response) in
+        AF.request(Router.update(model: data)).responseData { (response) in
+            
+            
             switch response.result {
+            
+            
             case .success(let rawJson):
+                
+                
                 print(rawJson)
                 
 //                do {

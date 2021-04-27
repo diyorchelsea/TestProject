@@ -52,17 +52,17 @@ class MainHomeView: BaseViewController {
         self.initUI()
         
         
-//        CarService.getCar(by: 33) { (res) in
+//        CarService.getCar(by: 37) { (res) in
 //            print(res)
 //        }
-        let data = ViewMainHomeEntity(object: MainHomeEntity(id: 36, modelName: "ьфявф гзвфеу", fuelConsumptioRate: 40.3))
-//        CarService.addCar(with: data) { (res) in
-//            print(res)
+//        let data = ViewMainHomeEntity(object: MainHomeEntity(id: 37, modelName: "Subaru", fuelConsumptioRate: 40.3))
+////        CarService.addCar(with: data) { (res) in
+////            print(res)
+////        }
+////
+//        CarService.updateCar(with: data) { (ress) in
+//            print(ress)
 //        }
-//
-        CarService.updateCar(with: data) { (ress) in
-            print(ress)
-        }
         
 //        CarService.deleteCae(by: 36) { (res) in
 //            print(res)
@@ -107,6 +107,8 @@ extension MainHomeView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let item = viewObjects[indexPath.row]
+        presenter.update(withEvent: .openDetail(item: item))
     }
 }
 

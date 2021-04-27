@@ -11,7 +11,11 @@ import UIKit
 //MARK: View Events -
 /// Detail Module View Events
 enum DetailViewEvent {
-    
+    case getCar(id: Int)
+}
+
+enum DetailFetchEvent {
+    case didRecieveCar(object: MainHomeEntity)
 }
 
 //MARK: View -
@@ -24,7 +28,8 @@ enum DetailViewEvent {
 protocol DetailViewProtocol: UIViewController {
     // Update UI with value returned.
     /// Set the view Object of Type ViewDetailEntity
-    func set(object: ViewDetailEntity)
+    func set(object: ViewMainHomeEntity)
+    func didReciveCar( by id: ViewMainHomeEntity)
 }
 
 //MARK: Interactor -
@@ -32,6 +37,8 @@ protocol DetailViewProtocol: UIViewController {
 protocol DetailInteractorProtocol {
     // Fetch Object from Data Layer
     func fetch(objectFor presenter: DetailPresenterProtocol)
+    
+    func getCar(by id: Int, for presenter: DetailPresenterProtocol )
 }
 
 //MARK: Presenter -
@@ -44,8 +51,7 @@ protocol DetailPresenterProtocol {
     func update(withEvent event: DetailViewEvent)
     
     /// The Interactor will inform the Presenter a successful fetch.
-    func interactor(_ interactor: DetailInteractorProtocol, didFetch object: DetailEntity)
-    
+    func interactor(_ interactor: DetailInteractorProtocol, didFetch event: DetailFetchEvent)
     /// The Interactor will inform the Presenter a failed fetch.
     func interactor(_ interactor: DetailInteractorProtocol, didFailWith error: Error)
 }

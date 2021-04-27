@@ -10,6 +10,12 @@ import UIKit
 
 /// MainHome Module Router (aka: Wireframe)
 class MainHomeRouter: MainHomeRouterProtocol {
+    func showDetailsFor(item: ViewMainHomeEntity, parent: UIViewController) {
+        let view = DetailView()
+        view.set(object: item)
+        parent.navigationController?.pushViewController(view, animated: true)
+    }
+    
 
-  
+
 }

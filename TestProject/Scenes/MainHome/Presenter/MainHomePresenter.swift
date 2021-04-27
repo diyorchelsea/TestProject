@@ -36,6 +36,10 @@ extension MainHomePresenter: MainHomePresenterProtocol {
         switch event {
         case .getCars:
             interactor.getCars(for: self)
+        case .deleteCar(let id):
+            break
+        case .openDetail(let item):
+            wireframe.showDetailsFor(item: item, parent: self.view!)
         }
     }
     

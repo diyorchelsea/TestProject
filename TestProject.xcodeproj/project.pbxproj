@@ -28,7 +28,6 @@
 		2D5F305C2632A88B00823362 /* DetailContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F30512632A88B00823362 /* DetailContracts.swift */; };
 		2D5F305D2632A88B00823362 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F30532632A88B00823362 /* DetailPresenter.swift */; };
 		2D5F305E2632A88B00823362 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F30552632A88B00823362 /* DetailView.swift */; };
-		2D5F305F2632A88B00823362 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D5F30562632A88B00823362 /* DetailView.xib */; };
 		2D5F30602632A88B00823362 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F30582632A88B00823362 /* DetailInteractor.swift */; };
 		2D5F30612632A88B00823362 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F305A2632A88B00823362 /* DetailRouter.swift */; };
 		2D7CEECE26314BC600F999AB /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7CEECC26314BC600F999AB /* RootRouter.swift */; };
@@ -59,7 +58,6 @@
 		2D5F30512632A88B00823362 /* DetailContracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailContracts.swift; sourceTree = "<group>"; };
 		2D5F30532632A88B00823362 /* DetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		2D5F30552632A88B00823362 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		2D5F30562632A88B00823362 /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		2D5F30582632A88B00823362 /* DetailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		2D5F305A2632A88B00823362 /* DetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		2D7CEECC26314BC600F999AB /* RootRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				2D5F30552632A88B00823362 /* DetailView.swift */,
-				2D5F30562632A88B00823362 /* DetailView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -351,7 +348,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D5F305F2632A88B00823362 /* DetailView.xib in Resources */,
 				2D459452262FFD7D00FFB8A3 /* LaunchScreen.storyboard in Resources */,
 				2D45944F262FFD7D00FFB8A3 /* Assets.xcassets in Resources */,
 			);
