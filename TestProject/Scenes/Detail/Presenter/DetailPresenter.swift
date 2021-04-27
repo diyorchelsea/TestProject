@@ -36,6 +36,12 @@ extension DetailPresenter: DetailPresenterProtocol {
         switch event {
         case .getCar(let id):
             interactor.getCar(by: id, for: self)
+        case .updateCar(let object):
+            if object.id == -999 {
+                interactor.addCar(with: object, for: self)
+            } else {
+                interactor.update(with: object, for: self)
+            }
         }
     }
     
@@ -43,8 +49,17 @@ extension DetailPresenter: DetailPresenterProtocol {
     func interactor(_ interactor: DetailInteractorProtocol, didFetch event: DetailFetchEvent) {
         switch event {
         case .didRecieveCar(let object):
-            self.view?.didReciveCar(by: ViewMainHomeEntity(object: object))
-         }
+            self.view?.didReciveCar(object: ViewMainHomeEntity(object: object))
+        case .didUpdateCar(let result):
+            self.view?.showAlertMesssage(title: nil, message: result ? "Success" : "Fail", okHandler: { (_) in
+                self.wireframe.backRoute(parent: self.view!)
+            })
+            
+        case .didAddCar(let result):
+            self.view?.showAlertMesssage(title: nil, message: result ? "Success" : "Fail", okHandler: { (_) in
+                self.wireframe.backRoute(parent: self.view!)
+            })
+        }
     }
     
     /// The Interactor will inform the Presenter a failed fetch.

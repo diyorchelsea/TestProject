@@ -13,7 +13,7 @@ import UIKit
 enum MainHomeViewEvent {
     case getCars
     case deleteCar(id: Int)
-    case openDetail(item: ViewMainHomeEntity)
+    case openDetail(item: ViewMainHomeEntity?)
 //    case getCar(id: Int)
 }
 
@@ -63,7 +63,7 @@ protocol MainHomePresenterProtocol {
 /// MainHome Module Router Protocol
 protocol MainHomeRouterProtocol: class {
     // Show Details of Entity Object coming from ParentView Controller.
-     func showDetailsFor(item: ViewMainHomeEntity, parent: UIViewController)
+     func showDetailsFor(item: ViewMainHomeEntity?, parent: UIViewController)
 
     
 }

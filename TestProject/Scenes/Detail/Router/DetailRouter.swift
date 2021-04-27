@@ -10,5 +10,7 @@ import UIKit
 
 /// Detail Module Router (aka: Wireframe)
 class DetailRouter: DetailRouterProtocol {
-        
+    func backRoute(parent: UIViewController) {
+        parent.navigationController?.popViewController(animated: true)
+    }
 }

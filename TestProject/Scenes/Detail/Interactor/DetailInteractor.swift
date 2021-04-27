@@ -22,5 +22,18 @@ class DetailInteractor: DetailInteractorProtocol {
         }
     }
     
+    func update(with object: ViewMainHomeEntity, for presenter: DetailPresenterProtocol) {
+        CarService.updateCar(with: object) { (res) in
+            presenter.interactor(self, didFetch: .didUpdateCar(result: res))
+        }
+    }
+    
+    func addCar(with object: ViewMainHomeEntity, for presenter: DetailPresenterProtocol) {
+        CarService.addCar(with: object) { (res) in
+            presenter.interactor(self, didFetch: .didAddCar(result: res))
+        }
+    }
+    
+    
 
 }

@@ -39,7 +39,7 @@ extension MainHomePresenter: MainHomePresenterProtocol {
         case .deleteCar(let id):
             break
         case .openDetail(let item):
-            wireframe.showDetailsFor(item: item, parent: self.view!)
+            wireframe.showDetailsFor(item: item ?? nil, parent: self.view!)
         }
     }
     

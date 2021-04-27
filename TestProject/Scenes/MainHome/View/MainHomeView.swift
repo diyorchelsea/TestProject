@@ -45,28 +45,10 @@ class MainHomeView: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = MainHomePresenter(view: self)
-//        self.presenter.fetch(objectFor: self)
         
         view.backgroundColor = .white
         self.presenter.update(withEvent: .getCars)
         self.initUI()
-        
-        
-//        CarService.getCar(by: 37) { (res) in
-//            print(res)
-//        }
-//        let data = ViewMainHomeEntity(object: MainHomeEntity(id: 37, modelName: "Subaru", fuelConsumptioRate: 40.3))
-////        CarService.addCar(with: data) { (res) in
-////            print(res)
-////        }
-////
-//        CarService.updateCar(with: data) { (ress) in
-//            print(ress)
-//        }
-        
-//        CarService.deleteCae(by: 36) { (res) in
-//            print(res)
-//        }
     }
     
     func initUI() {
@@ -84,8 +66,13 @@ class MainHomeView: BaseViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.presenter.update(withEvent: .getCars)
+    }
+    
     @objc func addTapped() {
-        
+        presenter.update(withEvent: .openDetail(item: nil))
     }
     
 }

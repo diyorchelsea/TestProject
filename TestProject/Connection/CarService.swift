@@ -52,13 +52,14 @@ class CarService {
             case .success(let rawJson):
                 do {
                     let data = try JSONDecoder().decode(MainHomeEntity.self, from: rawJson)
-                    
                     completion(true)
                 } catch let err {
                     print(err)
+                    completion(false)
                 }
             case .failure(let err):
-                    print( err)
+                print( err)
+                completion(false)
             }
         }
     }
@@ -67,37 +68,21 @@ class CarService {
         
         AF.request(Router.update(model: data)).responseData { (response) in
             
-            
             switch response.result {
-            
-            
             case .success(let rawJson):
-                
-                
                 print(rawJson)
-                
-//                do {
-//                    let data = try JSONDecoder().decode(Bool.self, from: rawJson)
-//
-//                    completion(data)
-//                } catch let err {
-//                    print(err)
-//                }
+                completion(true)
             case .failure(let error):
-                
-                    print( error)
+                completion(false)
+                print( error)
             }
         }
     }
     
-    static func deleteCae(by id: Int, completion: @escaping (Bool) -> Void) {
-        let serializer = DataResponseSerializer(emptyResponseCodes: Set([200, 204, 205]))
-
+    static func deleteCar(by id: Int, completion: @escaping (Bool) -> Void) {
         AF.request(Router.deleteCarModel(id: id)).validate().responseData { (response) in
             switch response.result {
             case .success(let data):
-                
-                
                 print(data)
             case .failure(let err):
             

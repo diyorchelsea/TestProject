@@ -12,10 +12,13 @@ import UIKit
 /// Detail Module View Events
 enum DetailViewEvent {
     case getCar(id: Int)
+    case updateCar(object: ViewMainHomeEntity)
 }
 
 enum DetailFetchEvent {
     case didRecieveCar(object: MainHomeEntity)
+    case didUpdateCar(result: Bool)
+    case didAddCar(result: Bool)
 }
 
 //MARK: View -
@@ -28,8 +31,8 @@ enum DetailFetchEvent {
 protocol DetailViewProtocol: UIViewController {
     // Update UI with value returned.
     /// Set the view Object of Type ViewDetailEntity
-    func set(object: ViewMainHomeEntity)
-    func didReciveCar( by id: ViewMainHomeEntity)
+    func set(object: ViewMainHomeEntity?)
+    func didReciveCar(object: ViewMainHomeEntity)
 }
 
 //MARK: Interactor -
@@ -38,7 +41,11 @@ protocol DetailInteractorProtocol {
     // Fetch Object from Data Layer
     func fetch(objectFor presenter: DetailPresenterProtocol)
     
-    func getCar(by id: Int, for presenter: DetailPresenterProtocol )
+    func getCar(by id: Int, for presenter: DetailPresenterProtocol)
+    
+    func update(with object: ViewMainHomeEntity, for presenter: DetailPresenterProtocol)
+    
+    func addCar(with object: ViewMainHomeEntity, for presenter: DetailPresenterProtocol)
 }
 
 //MARK: Presenter -
@@ -61,4 +68,6 @@ protocol DetailPresenterProtocol {
 protocol DetailRouterProtocol {
     // Show Details of Entity Object coming from ParentView Controller.
     // func showDetailsFor(object: DetailEntity, parentViewController viewController: UIViewController)
+    
+    func backRoute(parent: UIViewController)
 }

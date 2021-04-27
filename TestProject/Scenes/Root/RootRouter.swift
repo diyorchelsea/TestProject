@@ -175,3 +175,16 @@ class BaseTableViewCell: UITableViewCell {
     
 
 }
+
+
+extension UIViewController {
+    
+    func showAlertMesssage(title: String?, message:String?, okHandler:((UIAlertAction) -> Void)? = nil, okTitle: String = "OK") {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: okTitle, style: UIAlertAction.Style.default, handler: okHandler))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+}

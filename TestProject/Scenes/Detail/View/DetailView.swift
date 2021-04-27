@@ -8,25 +8,17 @@
 
 import UIKit
 
-class ViewDetailEntity {
-    
-    private var object : DetailEntity
-    
-    init(object: DetailEntity) {
-        self.object = object
-    }
-    
-}
-
 /// Detail Module View
 class DetailView: UIViewController {
     
     private var presenter: DetailPresenterProtocol!
-    private var viewObject : ViewDetailEntity?
+    private var viewObject : ViewMainHomeEntity?
+    private var isNew: Bool = false
     
     private lazy var nameLbl = UITextField.create { (field) in
         field.borderStyle = .roundedRect
     }
+    
     
     private lazy var nameFuelValue = UITextField.create { (field) in
         field.borderStyle = .roundedRect
@@ -65,6 +57,13 @@ class DetailView: UIViewController {
     
     
     @objc func saveTapped() {
+        let name = self.nameLbl.text
+        let fuelRate = Double(self.nameFuelValue.text ?? "0") ?? 0.0
+        let id = self.viewObject?.id ?? -999
+        
+        let object = ViewMainHomeEntity(object: MainHomeEntity(id: id, modelName: name, fuelConsumptioRate: fuelRate))
+        
+        self.presenter.update(withEvent: .updateCar(object: object))
         
     }
     
@@ -72,14 +71,15 @@ class DetailView: UIViewController {
 
 // MARK: - extending DetailView to implement it's protocol
 extension DetailView: DetailViewProtocol {
-    func didReciveCar(by id: ViewMainHomeEntity) {
-        self.nameLbl.text = id.modelName
-        self.nameFuelValue.text = "\(id.fuelConsumptioRate)"
+    func didReciveCar(object: ViewMainHomeEntity) {
+        self.viewObject = object
+        self.nameLbl.text = object.modelName
+        self.nameFuelValue.text = "\(object.fuelConsumptioRate)"
     }
     
-    func set(object: ViewMainHomeEntity) {
+    func set(object: ViewMainHomeEntity?) {
         self.presenter = DetailPresenter(view: self)
-        
+        guard let object = object else { return }
         presenter.update(withEvent: .getCar(id: object.id))
     }
     
